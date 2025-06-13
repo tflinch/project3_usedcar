@@ -14,10 +14,10 @@ from azure.ai.ml.entities import AmlCompute # Import AmlCompute for creating com
 credential = DefaultAzureCredential()
 
 # --- Explicitly get environment variables and check for existence ---
-subscription_id = os.getenv("AZURE_SUBSCRIPTION_ID")
-resource_group_name = os.getenv("AZURE_RESOURCE_GROUP")
+subscription_id = "72510a3d-1523-4e16-be26-bd516ff30c38"
+resource_group_name = "default_resource_group"
 # Ensure this matches the env var name set in your workflow
-workspace_name = os.getenv("AZUREML_WORKSPACE_NAME")
+workspace_name = "cpu-cluster"
 
 if not subscription_id:
     raise ValueError("AZURE_SUBSCRIPTION_ID environment variable is not set.")
