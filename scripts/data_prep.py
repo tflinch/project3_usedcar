@@ -23,7 +23,7 @@ def main():
 
     # 3. Read the data from the provided input path
     # Ensure to use the absolute path from the input argument
-    df = pd.read_csv(input_data_path, delimiter='\t')
+    df = pd.read_csv(input_data_path)
 
     # Basic data cleaning and preparation (adjust as per your actual data_prep.py logic)
     # Example: fill missing values for numerical columns
