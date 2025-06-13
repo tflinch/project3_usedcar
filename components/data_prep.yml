@@ -1,0 +1,31 @@
+# components/data_prep.yml
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+name: data_preparation_component
+display_name: Data Preparation
+version: 1
+type: command
+
+inputs:
+  data:
+    type: uri_file
+    description: Input data URI
+  test_train_ratio:
+    type: number
+    description: Ratio for test/train split
+
+outputs:
+  train_data:
+    type: uri_folder
+  test_data:
+    type: uri_folder
+
+environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu:1 # <--- FIX: Updated environment
+
+code: ../scripts # Corrected path: go up one level from 'components/' then into 'scripts/'
+
+command: >
+  python data_prep.py
+  --data ${{inputs.data}}
+  --test_train_ratio ${{inputs.test_train_ratio}}
+  --train_data ${{outputs.train_data}}
+  --test_data ${{outputs.test_data}}
